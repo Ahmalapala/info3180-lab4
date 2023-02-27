@@ -71,8 +71,18 @@ def login():
         return redirect(url_for("upload"))  # The user should be redirected to the upload form instead
     return render_template("login.html", form=form)
 
-def 
+def get_uploaded_images():
+    image = []
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        if not filename.endswith('.gitkeep'):
+            image.append(filename)
+    return image
 
+@app.route('/files')
+@login_required
+def files():
+    image = get_uploaded_images()
+    return render_template('files.html', image=image)
 # user_loader callback. This callback is used to reload the user object from
 # the user ID stored in the session
 @login_manager.user_loader
