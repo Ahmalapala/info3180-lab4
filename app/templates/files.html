@@ -3,7 +3,7 @@
 {% block main %} 
     ,<ul>
         <div>
-            {% for image in images %}
+            {% for image in image %}
             <li><img src="{{url_for('get_image', filename=image)}}" alt="{{image}}"></li>
             {% endfor %}
         </div>
