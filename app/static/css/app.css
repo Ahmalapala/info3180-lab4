@@ -18,3 +18,17 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.grid-container{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 20vw);
+}
+    
+.container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+

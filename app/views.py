@@ -112,6 +112,13 @@ def send_text_file(file_name):
 def get_image(filename):
     return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Successfully Logged Out.')
+    return redirect(url_for('home'))
+
 @app.after_request
 def add_header(response):
     """
